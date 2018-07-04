@@ -1,0 +1,45 @@
+CREATE TABLE user (
+	id bigint(20) NOT NULL AUTO_INCREMENT,
+	first_name varchar(20) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	email varchar(50) NOT NULL,
+	password varchar(50) NOT NULL,
+	PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE category (
+	id BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL,
+	description VARCHAR(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE news (
+	id BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(50) NOT NULL,
+	content VARCHAR(1100) NOT NULL,
+	news_date DATE NOT NULL,
+	category_id BIGINT(20) NOT NULL,
+	user_id BIGINT(20) NOT NULL,
+	FOREIGN KEY (category_id) REFERENCES category(id),
+	FOREIGN KEY (user_id) REFERENCES user(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE comment (
+	id BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	comment VARCHAR(500) NOT NULL,
+	comment_date DATE NOT NULL,
+	news_id BIGINT(20) NOT NULL,
+	user_id BIGINT(20) NOT NULL,
+	FOREIGN KEY (news_id) REFERENCES news(id),
+	FOREIGN KEY (user_id) REFERENCES user(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE reply (
+	id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	reply VARCHAR(500) NOT NULL,
+	reply_date DATE NOT NULL,
+	user_id BIGINT(20) NOT NULL,
+	comment_id BIGINT(20) NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES user(id),
+	FOREIGN KEY (comment_id) REFERENCES comment(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
