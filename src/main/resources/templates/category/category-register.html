@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout-default}">
+    <head>
+        <title>Category Register</title>
+    </head>
+
+    <body>
+        <section layout:fragment="content-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="single_content_layout">
+                            <div class="add_a_comment">
+                                <div class="single_media_title"><h2>Category Register</h2></div>
+                                <div class="comment_form">
+                                    <form method="POST" th:action="@{/category/new}" th:object="${category}">
+                                        <label for="name">Name:</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}">
+                                        </div>
+
+                                        <label for="description">Description:</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="description" placeholder="Description" th:field="*{description}">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-submit red">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
