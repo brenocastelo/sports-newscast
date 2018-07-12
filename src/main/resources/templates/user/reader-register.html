@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/layout-default}">
+
+	<head>
+		<title>Reader Register</title>
+	</head>
+	
+	<body>
+		
+		<section layout:fragment="content-1">
+			<div class="container">   
+			    <div class="row">
+			    	<div class="col-md-9">
+			    		<div class="single_content_layout">
+							<div class="add_a_comment">
+								<div class="single_media_title"><h2>Reader Register</h2></div>
+								<div class="comment_form">
+									<form method="POST" th:action="@{/user/new}" th:object="${user}">
+									
+				                     	<label for="firstName">First name:</label>
+				                     	<div class="form-group">
+				                       		<input type="text" class="form-control" id="firstName" placeholder="First Name" th:field="*{firstName}">
+				                        </div>
+				                        
+				                     	<label for="lastName">Last name:</label>
+				                        <div class="form-group">
+				                       		<input type="text" class="form-control" id="lastName" placeholder="Last Name" th:field="*{lastName}">
+				                        </div>
+				                        
+				                        <label for="email">Email:</label>
+				                        <div class="form-group">
+				                        	<input type="email" class="form-control" id="email" placeholder="Email" th:field="*{email}">
+				                        </div>
+				                        
+				                     	<label for="password">Password:</label>
+				                      	<div class="form-group">
+				                       		<input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
+				                        </div>
+				                        
+				                    	<button type="submit" class="btn btn-submit red">Register</button>
+				                	</form>
+				            	</div><!--comment_form-->
+							</div><!--add_a_comment-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+	</body>
+
+</html>

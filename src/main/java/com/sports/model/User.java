@@ -1,6 +1,6 @@
 package com.sports.model;
 
-import java.util.List; 
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,9 +31,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<Reply> replys;
-	
+
 	@ManyToMany
-	@JoinTable(name = "user_role" ,joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
 	public Long getId() {
@@ -98,6 +98,14 @@ public class User {
 
 	public void setReplys(List<Reply> replys) {
 		this.replys = replys;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override
