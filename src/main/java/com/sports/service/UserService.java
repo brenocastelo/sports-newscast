@@ -1,6 +1,5 @@
 package com.sports.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class UserService {
 
 	public void saveUser (User user) {
 		Role useRole = roleRepository.findByRole("READER"); 
-		user.setRoles(new ArrayList<Role>(Arrays.asList(useRole)));
+		user.setRoles(Arrays.asList(useRole));
 		
 		userRepository.save(user);
 	}

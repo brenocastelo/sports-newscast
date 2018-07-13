@@ -106,7 +106,9 @@
 					<div id="navbar" class="collapse navbar-collapse sidebar-offcanvas">
 					<ul class="nav navbar-nav">
 						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll" href="category.html">Baseball</a></li>
+
+						<li th:each="category : ${categories}"><a class="page-scroll" href="category.html" th:text="${category.name}">Baseball</a></li>
+						<!--
 						<li><a class="page-scroll" href="category.html">Football</a></li>
 						<li><a class="page-scroll" href="category.html">Hockey</a></li>
 						<li><a class="page-scroll" href="category.html">Basketball</a></li>
@@ -115,7 +117,7 @@
 						<li><a class="page-scroll" href="category.html">Tennis</a></li>
 						<li><a class="page-scroll" href="category.html">Horse racing</a></li>
 						<li><a class="page-scroll" href="category.html">Track & Field</a></li>
-	
+						-->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
 							<ul class="dropdown-menu">
