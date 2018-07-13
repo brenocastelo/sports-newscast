@@ -1,6 +1,7 @@
 package com.sports.controller;
 
 import com.sports.model.News;
+import com.sports.service.CategoryService;
 import com.sports.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,14 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @GetMapping("/post")
     public ModelAndView newsForm(News news) {
         ModelAndView mv = new ModelAndView("news/news-register");
         mv.addObject("news", news);
+        mv.addObject("categories", categoryService.getAll());
 
         return mv;
     }

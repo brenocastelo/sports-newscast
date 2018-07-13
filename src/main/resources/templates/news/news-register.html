@@ -15,7 +15,7 @@
                     <div class="col-md-9">
                         <div class="single_content_layout">
                             <div class="add_a_comment">
-                                <div class="single_media_title"><h2>Category Register</h2></div>
+                                <div class="single_media_title"><h2>News Post</h2></div>
                                 <div class="comment_form">
 
                                     <form method="post" th:action="@{/news/post}" th:object="${news}">
@@ -29,8 +29,12 @@
                                             <textarea class="form-control" id="inputComment" placeholder="Comment" th:field="*{content}"></textarea>
                                         </div>
 
-                                        <input type="hidden" th:value="${1}" th:field="*{user}">
-                                        <input type="hidden" th:value="${1}" th:field="*{category}">
+                                        <div class="form-group">
+                                            <select th:field="*{category}" class="form-control">
+                                                <option value="">Selecione uma categoria</option>
+                                                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                                            </select>
+                                        </div>
 
                                         <button type="submit" class="btn btn-submit red">Post</button>
                                     </form>
