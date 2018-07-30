@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     
 	<head>
 	    <meta charset="utf-8">
@@ -56,6 +57,8 @@
 				                        <li><a href="#">Login</a></li>
 				                        <li><a th:href="@{/user/new}">Register</a></li>
 		                    		</ul>
+									<div sec:authentication="name"></div>
+									<span th:text ="${#authentication.getPrincipal()}"></span>
 			    				</div><!--top-menu-->
 			    			</div><!--top_ber_left-->
 			    		</div><!--col-md-6-->

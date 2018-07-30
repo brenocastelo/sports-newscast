@@ -1,5 +1,7 @@
 package com.sports.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Role {
+public class Role implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +44,11 @@ public class Role {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	@Override
+	public String getAuthority() {
+		return role.toString();
 	}
 
 }

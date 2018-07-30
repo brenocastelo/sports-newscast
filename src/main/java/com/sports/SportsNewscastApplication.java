@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class SportsNewscastApplication {
@@ -16,5 +18,10 @@ public class SportsNewscastApplication {
 	@Bean
 	LayoutDialect layoutDialect() {
 		return new LayoutDialect();
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 }
